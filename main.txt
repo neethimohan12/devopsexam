@@ -1,0 +1,18 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"   # Provider Plugin
+      version = "~> 6.0"          # Version Constraint: 5.0, 5.1, 5.2 ~ 5.9
+    }
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"            # N. Virginia
+}
+
+# Create a VPC
+resource "aws_vpc" "example" {    # "example" is a name of an object for Terraform!
+  cidr_block = "10.0.0.0/16"      # Check on AWS how many VPC do you have!
+}
